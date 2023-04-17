@@ -3,10 +3,15 @@
 module Types
   class EmployeeType < Types::BaseObject
     field :id,            ID,                             null: false
-    field :department_id, Integer
+    field :department_id, ID
     field :name,          String
     field :join_year,     GraphQL::Types::ISO8601DateTime
+    field :department,    Types::DepartmentType
     field :created_at,    GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at,    GraphQL::Types::ISO8601DateTime, null: false
+
+    def department
+      object.department
+    end
   end
 end

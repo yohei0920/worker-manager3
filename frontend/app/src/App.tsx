@@ -1,32 +1,14 @@
 import React from 'react';
 import styles from './App.module.css';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Auth from './components/Auth'
 import MainPage from './components/MainPage'
-import { setContext } from '@apollo/client/link/context';
-
-const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
-});
-
-// JWTトークンをリクエストのヘッダーに追加する関数
-const authLink = setContext((_, { headers }) => {
-  // JWTトークンを取得
-  const token = localStorage.getItem('token');
-  // ヘッダーにJWTトークンを追加
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    }
-  }
-});
 
 // Apollo Clientの初期化
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: 'http://localhost:3001/graphql',
   cache: new InMemoryCache()
 });
 

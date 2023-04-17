@@ -5,7 +5,7 @@ module Queries
     type Types::EmployeeType, null: false
 
     def resolve(id:)
-      ::Employee.find(id)
+      ::Employee.includes(:department).order(:id)
     end
   end
 end
