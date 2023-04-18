@@ -5,7 +5,7 @@ module Types
     field :id,            ID,                             null: false
     field :department_id, ID
     field :name,          String
-    field :join_year,     GraphQL::Types::ISO8601DateTime
+    field :join_year,     Integer
     field :department,    Types::DepartmentType
     field :created_at,    GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at,    GraphQL::Types::ISO8601DateTime, null: false

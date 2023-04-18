@@ -1,9 +1,9 @@
 module Mutations
   class CreateEmployee < Mutations::BaseMutation
     graphql_name 'createEmployee'
-    argument :department_id, Integer,     required: true
+    argument :department_id, ID,          required: true
     argument :name,          String,      required: true
-    argument :join_year,     String,      required: true
+    argument :join_year,     Integer,     required: true
 
     field :employee, Types::EmployeeType, null: false
 

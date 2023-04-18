@@ -1,13 +1,11 @@
-import React from 'react'
 import styles from './EmployeeList.module.css'
 
-export default function EmployeeList({ Employees }) {
-  console.log(Employees)
+const EmployeeList = ({ dataEmployees }) => {
   return (
     <>
       <h3>Employee List</h3>
       <ul className={styles.employeeList__list}>
-        {Employees.employees.map((employee) => (
+        {dataEmployees.map((employee) => (
           <li className={styles.employeeList__item} key={employee.id}>
             <span>
               {employee.name}
@@ -20,3 +18,5 @@ export default function EmployeeList({ Employees }) {
     </>
   )
 }
+
+export default EmployeeList;

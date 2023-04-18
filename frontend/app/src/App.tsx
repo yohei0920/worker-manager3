@@ -5,6 +5,7 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Auth from './components/Auth'
 import MainPage from './components/MainPage'
+import StateContextProvider from './context/StateContext';
 
 // Apollo Clientの初期化
 const client = new ApolloClient({
@@ -14,15 +15,17 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client} >
-      <div className={styles.app}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Auth />} />
-            <Route path="/employees" element={<MainPage />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <ApolloProvider client={client}>
+      <StateContextProvider>
+        <div className={styles.app}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Auth />} />
+              <Route path="/employees" element={<MainPage />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+      </StateContextProvider>
     </ApolloProvider>
   );
 }
