@@ -1,4 +1,6 @@
 import { createContext, useState } from 'react';
+import { useLazyQuery } from "@apollo/client";
+import { GET_EMPLOYEE } from '../gql/query';
 export const StateContext = createContext();
 
 const StateContextProvider = (props) => {
@@ -7,6 +9,12 @@ const StateContextProvider = (props) => {
   const [deptName, setDeptName] = useState('');
   const [selectedDept, setSelectedDept] = useState("");
   const [editedId, setEditedId] = useState("");
+  const [
+    getSingleEmployee,
+    { data: dataSingleEmployee, error: errorSingleEmployee },
+  ] = useLazyQuery(GET_EMPLOYEE, {
+    fetchPolicy: "network-only",
+  });
 
   return (
     <StateContext.Provider value={{
@@ -20,6 +28,9 @@ const StateContextProvider = (props) => {
       setSelectedDept,
       editedId,
       setEditedId,
+      dataSingleEmployee,
+      errorSingleEmployee,
+      getSingleEmployee,
     }}>{props.children}</StateContext.Provider>
   )
 }

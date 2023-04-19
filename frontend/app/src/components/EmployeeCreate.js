@@ -38,7 +38,7 @@ const EmployeeCreate = ({ dataDepts }) => {
         />
         <input
           className={styles.employeeCreate__input}
-          placeholder="入社年"
+          placeholder="入社年度"
           type="number"
           value={joinYear}
           onChange={(e) => setJoinYear(e.target.value)}

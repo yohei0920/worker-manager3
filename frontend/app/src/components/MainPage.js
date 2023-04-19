@@ -3,6 +3,7 @@ import { GET_EMPLOYEES, GET_DEPTS } from '../gql/query'
 import { useQuery } from '@apollo/client'
 import EmployeeList from './EmployeeList'
 import EmployeeCreate from './EmployeeCreate'
+import EmployeeDetail from './EmployeeDetail'
 
 const MainPage = () => {
   const { loading: employee_loading, data: dataEmployees, error: employee_error } = useQuery(GET_EMPLOYEES)
@@ -16,7 +17,7 @@ const MainPage = () => {
         <Grid item xs={5}>
           {!employee_loading && dataEmployees && dataEmployees.employees && <EmployeeList dataEmployees={dataEmployees.employees} />}
         </Grid>
-        <Grid item xs={4}></Grid>
+        <Grid item xs={4}><EmployeeDetail /></Grid>
         <Grid item xs={3}></Grid>
       </Grid>
     </div>

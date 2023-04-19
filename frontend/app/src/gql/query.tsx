@@ -14,6 +14,21 @@ export const GET_EMPLOYEES = gql`
     }
   }
 `
+
+export const GET_EMPLOYEE = gql`
+  query($id: ID!) {
+    employee(id: $id) {
+      id
+      departmentId
+      name
+      joinYear
+      department {
+        id
+        name
+      }
+    }
+  }
+`
 export const GET_DEPTS = gql`
   query {
     departments {
@@ -41,8 +56,8 @@ export const CREATE_EMPLOYEE = gql`
 `
 
 export const UPDATE_EMPLOYEE = gql`
-  mutation($name: String!, $joinYear: Int!, $departmentId: ID!) {
-    updateEmployee(input: {name: $name, joinYear: $joinYear, departmentId: $departmentId}) {
+  mutation($id: ID!, $name: String!, $joinYear: Int!, $departmentId: ID!) {
+    updateEmployee(input: {id: $id, name: $name, joinYear: $joinYear, departmentId: $departmentId}) {
       employee {
         id
         departmentId
@@ -53,6 +68,14 @@ export const UPDATE_EMPLOYEE = gql`
           name
         }
       }
+    }
+  }
+`
+
+export const DELETE_EMPLOYEE = gql`
+  mutation($id: ID!) {
+    deleteEmployee(input: {id: $id}) {
+      id
     }
   }
 `
