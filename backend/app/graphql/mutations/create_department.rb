@@ -7,7 +7,6 @@ module Mutations
 
     def resolve(name:)
       department = Department.create!(name: name)
-
       { department: department }
     rescue => e
       GraphQL::ExecutionError.new(e.message)

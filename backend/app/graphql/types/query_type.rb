@@ -14,9 +14,9 @@ module Types
       "Hello World!"
     end
 
-    field :departments, resolver: Queries::Departments
-    field :department,  resolver: Queries::Department
-    field :employees,   resolver: Queries::Employees
-    field :employee,    resolver: Queries::Employee
+    field :departments,      resolver: Queries::Departments
+    field :department,       resolver: Queries::Department
+    field :employees,        resolver: Queries::Employees
+    field :employee,         resolver: Queries::Employee
   end
 end
