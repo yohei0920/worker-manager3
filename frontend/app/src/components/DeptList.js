@@ -6,6 +6,7 @@ import { useMutation } from "@apollo/client";
 import { CREATE_DEPT, DELETE_DEPT, GET_DEPTS, GET_EMPLOYEES } from "../gql/query";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 
 export default function DeptList({ dataDepts }) {
   const { deptName, setDeptName } = useContext(StateContext);
@@ -46,31 +47,42 @@ export default function DeptList({ dataDepts }) {
           作成する
         </Button>
       </div>
-      <ul className={styles.deptList__list}>
-        {dataDepts &&
-          dataDepts.departments &&
-          dataDepts.departments.map((department) => (
-            <li className={styles.deptList__item} key={department.id}>
-              <span>{department.name}</span>
-              <div>
-                <DeleteIcon
-                  className={styles.deptList__delete}
-                  onClick={async () => {
-                    try {
-                      await deleteDept({
-                        variables: {
-                          id: department.id,
-                        },
-                      });
-                    } catch (err) {
-                      alert(err.message);
-                    }
-                  }}
-                />
-              </div>
-            </li>
-          ))}
-      </ul>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>部署名</TableCell>
+              <TableCell></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {dataDepts &&
+              dataDepts.departments &&
+              dataDepts.departments.map((department) => (
+                <TableRow key={department.id}>
+                  <TableCell>{department.name}</TableCell>
+                  <TableCell>
+                    <DeleteIcon
+                      className={styles.deptList__delete}
+                      onClick={async () => {
+                        try {
+                          await deleteDept({
+                            variables: {
+                              id: department.id,
+                            },
+                          });
+                        } catch (err) {
+                          alert(err.message);
+                        }
+                      }}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   )
 }

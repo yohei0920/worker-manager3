@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { StateContext } from "../context/StateContext";
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+
 const EmployeeDetails = () => {
   const { dataSingleEmployee, errorSingleEmployee } = useContext(StateContext);
   return (
@@ -7,16 +9,28 @@ const EmployeeDetails = () => {
       <h3>従業員詳細</h3>
       {errorSingleEmployee && errorSingleEmployee.message}
       {dataSingleEmployee && dataSingleEmployee.employee && (
-        <>
-          <h3>ID: </h3>
-          {dataSingleEmployee.employee.id}
-          <h3>名前: </h3>
-          {dataSingleEmployee.employee.name}
-          <h3>入社年度: </h3>
-          {dataSingleEmployee.employee.joinYear}
-          <h3>所属部署名:</h3>
-          {dataSingleEmployee.employee.department.name}
-        </>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>従業員名</TableCell>
+                <TableCell>入社年度</TableCell>
+                <TableCell>所属部署名</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow>
+                <>
+                  <TableCell>{dataSingleEmployee.employee.id}</TableCell>
+                  <TableCell>{dataSingleEmployee.employee.name}</TableCell>
+                  <TableCell>{dataSingleEmployee.employee.joinYear}</TableCell>
+                  <TableCell>{dataSingleEmployee.employee.department.name}</TableCell>
+                </>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </>
   );

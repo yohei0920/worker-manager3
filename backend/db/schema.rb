@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_04_13_123604) do
   create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "department_id"
-    t.string "name"
-    t.datetime "join_year"
+    t.integer "department_id", null: false
+    t.string "name", null: false
+    t.integer "join_year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

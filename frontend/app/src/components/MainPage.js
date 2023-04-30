@@ -14,14 +14,14 @@ const MainPage = () => {
     <div>
       <h1>従業員管理システム</h1>
       {(!dept_loading && dataDepts) && <EmployeeCreate dataDepts={dataDepts} />}
-      <Grid container>
-        <Grid item xs={5}>
+      <Grid container alignItems='center' justifyContent='center'>
+        <Grid item xs={5} style={{ padding: '100px' }}>
           {!employee_loading && dataEmployees && dataEmployees.employees && <EmployeeList dataEmployees={dataEmployees.employees} />}
         </Grid>
         <Grid item xs={5}><EmployeeDetail /></Grid>
       </Grid>
-      <Grid container>
-        <Grid item xs={5}>
+      <Grid container alignItems='center' justifyContent='center'>
+        <Grid item xs={5} style={{ padding: '100px' }}>
           <FilterByName />
         </Grid>
         <Grid item xs={5}>

@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_EMPLOYEES } from "../gql/query";
 import TextField from '@material-ui/core/TextField';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 
 const FilterByName = () => {
   const [searchByName, setSearchByName] = useState("");
@@ -37,20 +38,31 @@ const FilterByName = () => {
           }}
         />
       </div>
-      <ul className={styles.filterByName__list}>
-        {errorSearch && <h3>{errorSearch.message}</h3>}
-        {dataSearch &&
-          dataSearch.employees &&
-          dataSearch.employees.map((employee) => (
-            <li className={styles.filterByName__item} key={employee.id}>
-              {employee.name}
-              {" / "}
-              {employee.joinYear}
-              {" / "}
-              {employee.department.name}
-            </li>
-          ))}
-      </ul>
+      {errorSearch && <h3>{errorSearch.message}</h3>}
+      {dataSearch &&
+        dataSearch.employees &&
+        dataSearch.employees.map((employee) => (
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>従業員名</TableCell>
+                  <TableCell>入社年度</TableCell>
+                  <TableCell>所属部署名</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow key={employee.id}>
+                  <>
+                    <TableCell>{employee.name}</TableCell>
+                    <TableCell>{employee.joinYear}</TableCell>
+                    <TableCell>{employee.department.name}</TableCell>
+                  </>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ))}
     </>
   )
 }

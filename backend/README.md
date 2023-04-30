@@ -1,24 +1,16 @@
-# README
+## 開発コマンド
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### DBのリセットと作成
 
-Things you may want to cover:
+~~~~~~~~~
+docker-compose run backend rails db:drop
+docker-compose run backend rails db:create
+docker-compose run backend rails db:migrate
+docker-compose run backend rails db:seed
+~~~~~~~~~
 
-* Ruby version
+### railsコンソール
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+~~~~~~~~~
+docker-compose run backend rails console
+~~~~~~~~~
