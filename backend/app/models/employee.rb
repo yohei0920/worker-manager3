@@ -12,8 +12,11 @@
 class Employee < ApplicationRecord
  # バリデーション
  validates :department_id,         presence: true
- validates :name,                  presence: true
- validates :join_year,             presence: true
+ validates :name,                  presence: true,
+                                   length: { maximum: 255 }
+ validates :join_year,             presence: true,
+                                   length: { is: 4, allow_blank: true },
+                                   numericality: { allow_blank: true, only_integer: true }
 
  # 関連
  belongs_to :department

@@ -12,7 +12,8 @@ class Department < ApplicationRecord
   has_many  :employees, dependent: :destroy
 
   # バリデーション
-  validates :name,      presence: true
+  validates :name,      presence: true,
+                        length: { maximum: 255 }
 
   # メソッド
 

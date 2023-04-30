@@ -55,3 +55,7 @@ gem 'pry-rails'
 gem 'devise'
 
 gem 'annotate'
+
+gem "rspec-rails"
+
+gem "factory_bot_rails"
