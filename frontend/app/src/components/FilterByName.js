@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./FilterByName.module.css";
+import styles from "./FilterByName.css";
 import SearchIcon from "@material-ui/icons/Search";
 import { useLazyQuery } from "@apollo/client";
 import { SEARCH_EMPLOYEES } from "../gql/query";

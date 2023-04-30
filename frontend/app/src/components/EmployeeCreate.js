@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { StateContext } from '../context/StateContext'
-import styles from './EmployeeCreate.module.css'
+import styles from './EmployeeCreate.css'
 import { useMutation } from '@apollo/client'
 import { CREATE_EMPLOYEE, GET_EMPLOYEES, UPDATE_EMPLOYEE } from '../gql/query'
 import TextField from '@material-ui/core/TextField';

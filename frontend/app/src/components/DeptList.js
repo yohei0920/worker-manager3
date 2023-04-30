@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { StateContext } from "../context/StateContext";
-import styles from "./DeptList.module.css";
+import styles from "./DeptList.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { useMutation } from "@apollo/client";
 import { CREATE_DEPT, DELETE_DEPT, GET_DEPTS, GET_EMPLOYEES } from "../gql/query";

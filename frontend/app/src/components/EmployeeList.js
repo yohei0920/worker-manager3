@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import styles from './EmployeeList.module.css'
+import styles from './EmployeeList.css'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator'

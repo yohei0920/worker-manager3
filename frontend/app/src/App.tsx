@@ -1,9 +1,7 @@
-import React from 'react';
 import styles from './App.module.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Auth from './components/Auth'
 import MainPage from './components/MainPage'
 import StateContextProvider from './context/StateContext';
 
@@ -20,7 +18,6 @@ function App() {
         <div className={styles.app}>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Auth />} />
               <Route path="/employees" element={<MainPage />} />
             </Routes>
           </BrowserRouter>
