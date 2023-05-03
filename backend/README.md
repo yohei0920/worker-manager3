@@ -28,7 +28,7 @@ docker-compose run backend rails db:seed
 
 
 
-### railsコンソール
+### Railsコンソール
 
 ~~~~~~~~~
 docker-compose run backend rails console
