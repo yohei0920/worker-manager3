@@ -59,3 +59,9 @@ gem 'annotate'
 gem "rspec-rails"
 
 gem "factory_bot_rails"
+
+gem 'rubocop'
+
+gem 'rubocop-performance'
+
+gem 'rubocop-rails'
