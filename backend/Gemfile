@@ -52,8 +52,6 @@ gem 'graphql'
 
 gem 'pry-rails'
 
-gem 'devise'
-
 gem 'annotate'
 
 gem "rspec-rails"
