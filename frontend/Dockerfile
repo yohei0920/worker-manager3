@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN yarn install
 
 # ソースコードをコピー
-COPY app ./app
+COPY . .
 
 # アプリを起動するコマンドを指定
 CMD ["yarn", "start"]
