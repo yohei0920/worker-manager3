@@ -28,6 +28,7 @@
 - MySQL 8.0
 - GraphQL
 - Rspec
+- FactoryBot
 - React 18.2.0
 - Apollo Client 3.7.11
 - Docker/Docker-compose
